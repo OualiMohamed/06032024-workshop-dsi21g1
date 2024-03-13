@@ -1,17 +1,27 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Contact</title>
-</head>
-<body>
+@extends('layouts.app')
+
+@section('contenu')
     <h1>Contact List</h1>
     <ul>
-        @foreach ($contacts as $contact)
-            <li>{{ $contact }}</li>
-        @endforeach
+        @if (count($contacts) > 0)
+            @foreach ($contacts as $contact)
+                <li>{{ $contact }}</li>
+            @endforeach
+        @else
+            <p>Pas de contacts</p>
+        @endif
     </ul>
-</body>
-</html>
+
+    @php
+        $counter = 1;
+    @endphp
+
+    @forelse ($contacts as $contact)
+        <p>{{ $counter }}. {{ $contact }}</p>
+        @php
+            $counter++;
+        @endphp
+    @empty
+        <p>Pas de contacts</p>
+    @endforelse
+@endsection

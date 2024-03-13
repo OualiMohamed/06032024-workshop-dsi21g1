@@ -1,7 +1,8 @@
 <?php
 
-use App\Http\Controllers\ContactController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\ContactController;
+use App\Http\Controllers\StudentController;
 
 /*
 |--------------------------------------------------------------------------
@@ -21,3 +22,5 @@ Route::get('/', function () {
 Route::get('/contact', [ContactController::class, 'getContact']);
 
 Route::get('/contacts', [ContactController::class, 'getContacts']);
+
+Route::get('/list-students', [StudentController::class, 'index']);
