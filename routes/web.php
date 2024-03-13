@@ -24,3 +24,7 @@ Route::get('/contact', [ContactController::class, 'getContact']);
 Route::get('/contacts', [ContactController::class, 'getContacts']);
 
 Route::get('/list-students', [StudentController::class, 'index']);
+
+Route::get('/add-student', [StudentController::class, 'addStudent']);
+
+Route::post('/save-student', [StudentController::class, 'saveStudent']);
